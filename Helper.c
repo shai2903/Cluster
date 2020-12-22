@@ -15,7 +15,7 @@ double epsilon = 0.00001;
 
 
 
- /* return the sum of vector */
+
 double getSum(double *vector, int n)
 {
 	int i;
@@ -28,7 +28,7 @@ double getSum(double *vector, int n)
 
 }
 
-/* return the sum of absolute values from  vector */
+
 double getSumAbs (double *vector,int n)
 {
 	int i;
@@ -41,10 +41,7 @@ double getSumAbs (double *vector,int n)
 }
 
 
-/*
- * calculate ki*kj\M for i=currLine , saved in saved
- * size- size of  saved
-*/
+
 void calculateKM(int *k, int M, int *g, int currLine, int size, double *saved)
 {
 	int i;
@@ -62,8 +59,8 @@ void calculateKM(int *k, int M, int *g, int currLine, int size, double *saved)
 	}
 }
 
-/* calculate (v1^T)*v2 */
-double dot_product(double *v1, double *v2, int n) {
+
+double dotProduct(double *v1, double *v2, int n) {
 	int i;
 	double sum = 0;
 
@@ -74,10 +71,10 @@ double dot_product(double *v1, double *v2, int n) {
 	return sum;
 }
 
-/* calculating the norm of vector */
+
 void norm(double *v, int n) {
 	int i;
-	double m = sqrt(dot_product(v, v, n));
+	double m = sqrt(dotProduct(v, v, n));
 
 	if(m<epsilon && m> (-1)* epsilon)
 	{
@@ -90,8 +87,8 @@ void norm(double *v, int n) {
 	}
 }
 
-/* return the max of (v1[i]-v2[i]) for all i={0...n} */
-double max_differ(double *v1, double *v2, int n) {
+
+double maxDiffer(double *v1, double *v2, int n) {
 
 	double differ;
 	int i;
@@ -106,7 +103,7 @@ double max_differ(double *v1, double *v2, int n) {
 	return max;
 }
 
-/* generate new random vector b0 of size n */
+
 void generateRandom(double *b0, int n)
 {
 	int i;
@@ -118,7 +115,7 @@ void generateRandom(double *b0, int n)
 	}
 }
 
-/* compute s according to vec , n-size s and vec */
+
 void computeS(double *vec, double *s, int n)
 {
 	int i;
@@ -132,7 +129,7 @@ void computeS(double *vec, double *s, int n)
 	}
 }
 
-/* count all the '1' in s */
+
 int countOne(double *s, int n)
 {
 	int i;
@@ -144,11 +141,7 @@ int countOne(double *s, int n)
 	return counter;
 }
 
-/*
- * divide to groups according to s
- * s=1 go to group division[1]
- * s=-1 go to group division[0]
- * */
+
 void makeDivision(int * P,double *s, int **division, int n)
 {
 	int i,n1,counterOne,counterZero;
@@ -188,7 +181,7 @@ void makeDivision(int * P,double *s, int **division, int n)
 
 
 
-/* mult k (according to the index in g) with vector v^T : k*v^T*/
+
 double multLineVec(int *k, int *g, const double *v, int n) {
 	double sum;
 	int i;
@@ -202,7 +195,7 @@ double multLineVec(int *k, int *g, const double *v, int n) {
 	return sum;
 }
 
-/*put 1 in all of array*/
+
 void allOneDouble(double *array,int size)
 {
 	 int i;
@@ -211,7 +204,7 @@ void allOneDouble(double *array,int size)
 		 array[i]=1;
 }
 
-/*put new val in max and loc */
+
 void changeLocMax (double *max,int *loc ,double data, int i)
 {
 	*max  = data;
@@ -220,10 +213,6 @@ void changeLocMax (double *max,int *loc ,double data, int i)
 
 
 
-/* return the index of the highest value in the array
- * if checkNeeded==1 -> return the highest from s only if unmoved[i]==1 unmoved
- * otherwise return the highest from s
- * */
  int max_location(double *s,int size,int *unmoved,int checkNeeded){
 	 int i,location;
 	 double max;
@@ -266,7 +255,7 @@ void changeLocMax (double *max,int *loc ,double data, int i)
 	 }
 	 return location;
  }
- /*bulid g[i]=i till ng*/
+
 void buildFirstG(int *group,int ng)
 {
 	int i;
@@ -281,7 +270,7 @@ void buildFirstG(int *group,int ng)
 }
 
 
-/*build the inverse of g*/
+
 void buildInverse(int *o,int* g,int ng)
 {
 	int j;

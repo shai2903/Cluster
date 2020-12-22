@@ -8,9 +8,9 @@
 #ifndef MAINALGORITHEM_H_
 #define MAINALGORITHEM_H_
 
-#include "LinkedList.h"
+#include "LinkedListArray.h"
+#include "LinkedListInt.h"
 #include "spmat.h"
-#include "LinkedListCol.h"
 #include "ModMatrix.h"
 
 

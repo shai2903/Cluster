@@ -15,9 +15,9 @@
  *
  * */
 
+#include "LinkedListArray.h"
 #include "spmat.h"
 
-#include "LinkedList.h"
 
 /*
  * writeInFile - write the result of division in Output

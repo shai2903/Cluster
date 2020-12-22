@@ -14,16 +14,7 @@
 
 #include <stdlib.h>
 
-/*
- * g - group of node
- * ng - size of g
- * B-mod matrix
- * s - vector for division
- * eigenVector - the eigen vector
- * helper,helper2,saved - vector for calculation and result
- * first - if first=1 - calculate shift otherwise dont
- * return the eigenVal
- * */
+
 double algorithm2 (ModMatrix *B,int ng, double *s,double *eigenVector,double *helper,double *helper2,int first,double *saved)
 {
 
@@ -60,12 +51,7 @@ double algorithm2 (ModMatrix *B,int ng, double *s,double *eigenVector,double *he
 
 
 
-/*modularity maximization
- * B -matrix
- * s - division from algo 2
- * indices - vector for maximization
- * helperRes,helperCalc,savedQ,saved - helper vector for Q calculation
- *  */
+
 void algorithm4(double *s,ModMatrix *B,int* indices,double *helperRes,double *helperCalc,double *savedQ,double *saved){
 	double q0, d_q,scoreMax,scoreCurr,improveMax,improvePrev,improveCurr,resk;
 	int i,j,m, im,nP,p,index,isFirstRoundLoop2, isFirstRoundLoop1;
@@ -161,13 +147,7 @@ void algorithm4(double *s,ModMatrix *B,int* indices,double *helperRes,double *he
 
 
 
-/*
- * return the divison of the graph
- * A -  sparse matrix
- * k - vector with degrees of nodes
- * M - sum of all degrees
- * ng - size of k
- * */
+
 ElementA* algorithm3 (spmat *A,int *k, int M, int ng ){
 
 	ElementA* P,*O;

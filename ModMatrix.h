@@ -59,12 +59,12 @@ void freeMatrix(ModMatrix *b);
 
 /* return the 1-Norm of B_hat and calculate shift
  * B - matrix
- *first - 1 if first time calculte norm
- *helperResB - vector for calculteion
+ *first - 1 if first time calculate norm
+ *helperResB - vector for calculation
  * */
 double Shift(ModMatrix *B,double* helperResB,int first);
 
-/* caclulate f=f-norm */
+/* calculate f=f-norm */
 void addNormToF(ModMatrix *B, double norm);
 
 /**
@@ -83,7 +83,7 @@ void multB(ModMatrix *B, double *v, double *res,double* helperCalcB,double *help
 /*
  * mult f*I*ezer
  * f  line vector with sum of each line
- * saved calc in res
+ * saved calculation in res
  * */
 void multF(ModMatrix *B, double *ezer, double *res);
 

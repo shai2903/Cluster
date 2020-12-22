@@ -18,22 +18,19 @@
 
 
 
-/*
- * writeInFile - write the result of division in Output
- *
- * */
 
 void writeInFile(ElementA * head,FILE *Output)
 {
 	int *pointer;
-	int isFirstLoop,counter,nr;
-	isFirstLoop=1;
+	int isFirstLoop,counter,nr,groupCounter,l;
+	isFirstLoop=1,groupCounter=1;
 	while(head!=NULL)
 	{
 		if(isFirstLoop==0)
 		{
-			/*printf("group");
-			printf(" ");*/
+			printf("group ");
+			printf("%d",groupCounter);
+			printf(" : ");
 
 			pointer=(*head).array;
 			counter=pointer[0];
@@ -46,17 +43,17 @@ void writeInFile(ElementA * head,FILE *Output)
 
 
 			}
-			/*for(l=1;l<counter+1;l++){
+			for(l=1;l<counter+1;l++){
 
 					printf("%d",pointer[l]);
 					printf(" ");
 
 
-				}*/
+				}
 		}
 		head=(ElementA*)((*head).next);
 		isFirstLoop=0;
-		/*printf("\n");*/
+		printf("\n");
 	}
 
 
@@ -68,7 +65,7 @@ int main(int argc, char *argv[]) {
 	int *n,*k;
 	int M,nr;
 
-	/*int l;*/
+
 	spmat *A;
 
 	ElementA * final_division, *head;

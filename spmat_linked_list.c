@@ -11,19 +11,14 @@
 #include "SPBufferset.h"
 #include "spmat.h"
 #include "Helper.h"
-#include "LinkedListCol.h"
+#include "LinkedListInt.h"
 
 
 
 
 
 
-/*
- * Adds row i the matrix. Called before any other call,
- * exactly n times in order (i = 0 to n-1)
- * add  row to the row_lists
- * for every  row[index]  node->data=1 and  node->col= row[index]
- * */
+
 void add_row_linked(struct _spmat *A, const int *row, int i,int  size) {
 	int j;
 	List *head; /* pointer to the first node in this line */
@@ -59,7 +54,7 @@ void add_row_linked(struct _spmat *A, const int *row, int i,int  size) {
 
 }
 
-/* Frees all resources used by A */
+
 void free_linked_list (struct _spmat *A) {
 	int j;
 	List head;
@@ -79,10 +74,8 @@ void free_linked_list (struct _spmat *A) {
 }
 
 
-/*
- *  mult line j from A with v
- * */
-double one_mult(const struct _spmat *A,const double *v,int j,int *o) {
+
+double oneMult(const struct _spmat *A,const double *v,int j,int *o) {
 	List *head;
 		int line;
 		double result=0.0;
@@ -101,7 +94,7 @@ double one_mult(const struct _spmat *A,const double *v,int j,int *o) {
 			return result;
 
 }
-/* mult  A*v and saved in result*/
+
 void mul_linked_list(const struct _spmat *A,int ng,const double *v, double *result,int *o) {
 	int i;
 	List *head;
@@ -127,12 +120,7 @@ void mul_linked_list(const struct _spmat *A,int ng,const double *v, double *resu
 }
 
 
-/*
- *calculate lineB(saved in lineKM) =lineA- lineKM*/
-/*n - size of lineKm
- *index - current line in A
- *g- the groups from B shifted
- * */
+
 void calculateLineB(spmat *A, double *lineKM,int n,int index, int *o)
 {
 	int i;
@@ -155,7 +143,7 @@ void calculateLineB(spmat *A, double *lineKM,int n,int index, int *o)
 
 }
 
-/* allocate space of an array with n cells, each with pointer to the start of a list */
+
 spmat* spmat_allocate_list(int n) {
 	int i;
 	spmat *s; /* the new matrix */
@@ -186,7 +174,7 @@ spmat* spmat_allocate_list(int n) {
 	return s;
 }
 
-/*get the correvt line from Ag*/
+
 int getRowAccordingToG(List *head,int *g,int n,int *binary,int *row)
 {
 
@@ -209,7 +197,7 @@ int getRowAccordingToG(List *head,int *g,int n,int *binary,int *row)
 
 }
 
-/* bulid mini A according to g*/
+
 spmat* BuildAg(spmat *A, int *g,int n,int *binary,int *row)
 {
 
@@ -233,10 +221,7 @@ spmat* BuildAg(spmat *A, int *g,int n,int *binary,int *row)
 }
 
 
-/**
- * build matrix A from Input_mat
- * return M=sum of all degree
- */
+
 int BulidA (spmat *A,int *k,FILE *Input_mat,int n)
 {
 	int line,M,nr;
@@ -281,7 +266,7 @@ int BulidA (spmat *A,int *k,FILE *Input_mat,int n)
 			}
 
 
-			/*put 1 in A for every neighbor in neighbors */
+			/*put 1 in A for every neighbour in neighbors */
 			A->add_row(A, neighbors, line,k[line]);
 
 

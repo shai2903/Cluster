@@ -7,15 +7,15 @@
 /**
  *spmat.h Summary:
  *
- *module for sparse matric
+ *module for sparse matrix
  *
  *add_row -add row for A
  *free - free A
- *mult - nult A with vector
+ *mult - multiplication A with vector
  *spmat_allocate_list - allocate space for A
  *calculateLineB  - calculte line in matrix B (from A)
- *one_mult - mult line j from A with v
- *BuildAg - bulid mini A according to g
+ *oneMult - multiplication line j from A with v
+ *BuildAg - bulid sub A according to g
  *getRowAccordingToG - get the correvt line from Ag
 
 
@@ -57,10 +57,11 @@ spmat* spmat_allocate_list(int n);
 void calculateLineB(spmat *A, double *lineKM,int n,int index, int *o);
 
 /*
- *  mult line j from A with v
+ *  return multiplication line j from A with v
  * */
-double one_mult(const struct _spmat *A,const double *v,int j,int *o) ;
-/* bulid mini A according to g*/
+double oneMult(const struct _spmat *A,const double *v,int j,int *o) ;
+
+/* bulid sub A according to g*/
 spmat* BuildAg(spmat *A, int *g,int n,int *binary,int *row);
 
 /**
